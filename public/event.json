@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Conference Management",
+    "image": "https://i.ibb.co/dkzJ3Hk/ser1.jpg",
+    "price": 5000,
+    "description": "Our professional conference management service takes care of all the details to ensure your corporate event runs smoothly. From venue selection to attendee registration, we handle it all, allowing you to focus on delivering a successful conference."
+  },
+  {
+    "id": 2,
+    "name": "Event Catering",
+    "image": "https://i.ibb.co/dKmGD2f/ser3.jpg",
+    "price": 3000,
+    "description": "Indulge your guests with our exquisite event catering service. Our expert chefs and culinary team will create a customized menu that suits your event's theme and preferences, ensuring a delightful dining experience for all attendees."
+  },
+  {
+    "id": 3,
+    "name": "Audiovisual Solutions",
+    "image": "https://i.ibb.co/cgbpKDf/ser4.jpg",
+    "price": 4000,
+    "description": "Elevate your corporate event's impact with our state-of-the-art audiovisual solutions. We provide top-quality sound systems, projection equipment, and lighting setups to enhance presentations, making your event memorable and engaging."
+  },
+  {
+    "id": 4,
+    "name": "Team Building Activities",
+    "image": "https://i.ibb.co/S0dxwtc/ser5.jpg",
+    "price": 2500,
+    "description": "Boost team morale and collaboration with our fun and interactive team-building activities. Whether it's outdoor adventures, indoor challenges, or creative workshops, we offer a range of activities to foster teamwork and camaraderie among your employees."
+  },
+  {
+    "id": 5,
+    "name": "Event Decor and Design",
+    "image": "https://i.ibb.co/L5zb2g3/ser6.jpg",
+    "price": 3500,
+    "description": "Transform your event space into a captivating and thematic environment with our event decor and design services. Our team of designers will work closely with you to create a visually stunning atmosphere that aligns with your event's objectives."
+  },
+  {
+    "id": 6,
+    "name": "Keynote Speakers",
+    "image": "https://i.ibb.co/dr6wYc6/ser7.jpg",
+    "price": 6000,
+    "description": "Attract and engage your audience with renowned keynote speakers. We have a roster of industry experts, thought leaders, and motivational speakers who can inspire and educate your attendees, adding value to your corporate event."
+  },
+  {
+    "id": 7,
+    "name": "Event Planning Consultation",
+    "image": "https://i.ibb.co/Hp3kTtq/ser8.jpg",
+    "price": 1000,
+    "description": "Get expert guidance and insights with our event planning consultation service. Our experienced event planners will provide you with valuable advice, help you set objectives, and create a strategic plan to ensure your event's success."
+  },
+  {
+    "id": 8,
+    "name": "Transportation Services",
+    "image": "https://i.ibb.co/7j6SJgX/ser9.jpg",
+    "price": 2000,
+    "description": "Ensure hassle-free transportation for your event attendees with our transportation services. We offer reliable shuttle services, private chauffeurs, and logistics coordination to make sure everyone arrives on time and safely."
+  },
+  {
+    "id": 9,
+    "name": "Social Media Promotion",
+    "image": "https://i.ibb.co/dKmGD2f/ser3.jpg",
+    "price": 1500,
+    "description": "Maximize your event's reach and engagement with our social media promotion package. Our social media experts will create and execute a tailored campaign strategy, leveraging various platforms to create buzz and attract attendees."
+  }
+]
