@@ -9,3 +9,5 @@ Project features
 ##
 
 Live link
+
+[Info-Technology](https://acidic-stream.surge.sh/)
