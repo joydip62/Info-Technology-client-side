@@ -10,14 +10,12 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/services">Service</NavLink>
+        <NavLink to="/addProduct">Add Product</NavLink>
       </li>
       <li>
-        <NavLink to="/projects">Projects</NavLink>
+        <NavLink to="/myCart">My Cart</NavLink>
       </li>
-      <li>
-        <NavLink to="/blogs">Blog</NavLink>
-      </li>
+     
     </>
   );
   return (

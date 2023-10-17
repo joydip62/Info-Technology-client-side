@@ -4,6 +4,9 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import NotFoundPage from "../pages/Error/NotFoundPage";
+import MyCarts from "../components/MyCarts/MyCarts";
+import AddProducts from "../components/Products/AddProducts";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +17,24 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("/event.json"),
+      },
+
+      {
+        path: "/addProduct",
+        element: (
+          <PrivateRoute>
+            <AddProducts></AddProducts>
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "/myCart",
+        element: (
+          <PrivateRoute>
+            <MyCarts></MyCarts>
+          </PrivateRoute>
+        ),
       },
 
       {
