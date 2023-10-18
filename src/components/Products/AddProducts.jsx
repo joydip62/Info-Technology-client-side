@@ -1,6 +1,9 @@
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddProducts = () => {
+  const loadProducts = useLoaderData();
+
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,20 +25,24 @@ const AddProducts = () => {
       photo,
     };
     //   console.log(products);
-      fetch("http://localhost:5000/products", {
-          method: 'POST',
-          headers: {
-              'content-type': 'application/json'
-          },
-          body: JSON.stringify(products)
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.acknowledged) {
-            Swal.fire("Good job!", "You Added a product successfully!", "success");
-            }
-            form.reset();
-        });
+    fetch("http://localhost:5000/products", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(products),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire(
+            "Good job!",
+            "You Added a product successfully!",
+            "success"
+          );
+        }
+        form.reset();
+      });
   };
 
   /*
@@ -60,7 +67,7 @@ https://i.ibb.co/mvR8M9q/jbl-headphones.png
 
     */
   return (
-    <div className="w-3/4 m-auto text-center p-24">
+    <div className="w-3/4 m-auto text-center lg:p-24">
       <h2 className="text-3xl mb-8">Add Product</h2>
       <form onSubmit={handleAddProduct}>
         <div className="md:flex space-x-5 mb-8">
@@ -74,6 +81,7 @@ https://i.ibb.co/mvR8M9q/jbl-headphones.png
                 placeholder="enter product name"
                 className="input input-bordered w-full"
                 name="name"
+                required
               />
             </label>
           </div>
@@ -85,6 +93,7 @@ https://i.ibb.co/mvR8M9q/jbl-headphones.png
               <select
                 className="select select-bordered w-full max-w-xs"
                 name="brandName"
+                required
               >
                 <option disabled selected>
                   Select type
@@ -109,6 +118,7 @@ https://i.ibb.co/mvR8M9q/jbl-headphones.png
               <select
                 className="select select-bordered w-full max-w-xs"
                 name="productType"
+                required
               >
                 <option disabled selected>
                   Select type
@@ -130,6 +140,7 @@ https://i.ibb.co/mvR8M9q/jbl-headphones.png
                 placeholder="enter price"
                 className="input input-bordered w-full"
                 name="price"
+                required
               />
             </label>
           </div>
@@ -146,6 +157,7 @@ https://i.ibb.co/mvR8M9q/jbl-headphones.png
                 placeholder="enter sort description"
                 className="input input-bordered w-full"
                 name="sortDescription"
+                required
               />
             </label>
           </div>
@@ -159,6 +171,7 @@ https://i.ibb.co/mvR8M9q/jbl-headphones.png
                 placeholder="enter rating"
                 className="input input-bordered w-full"
                 name="rating"
+                required
               />
             </label>
           </div>
@@ -175,12 +188,67 @@ https://i.ibb.co/mvR8M9q/jbl-headphones.png
                 placeholder="enter photo url"
                 className="input input-bordered w-full"
                 name="photo"
+                required
               />
             </label>
           </div>
         </div>
         <input className="btn btn-block" type="submit" value="Add Product" />
       </form>
+
+      <br />
+      <br />
+      <br />
+      <h2 className="text-3xl mb-8">All Products</h2>
+
+      <div className="overflow-x-auto">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {loadProducts.map((product) => (
+              <>
+                <tr>
+                  <td>
+                    <div className="flex items-center space-x-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                          <img src={product.photo} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{product.name}</div>
+                        <div className="text-sm opacity-50">
+                          {product.brandName}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    {product.sortDescription}
+                    <br />
+                    <span className="badge badge-ghost badge-sm">
+                      {product.productType}
+                    </span>
+                  </td>
+                  <td>{product.price}</td>
+
+                  <th>
+                    <button className="btn btn-ghost btn-xs">Edit</button>
+                    <button className="btn btn-danger btn-xs">Delete</button>
+                  </th>
+                </tr>
+              </>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

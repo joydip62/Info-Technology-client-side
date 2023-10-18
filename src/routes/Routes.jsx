@@ -7,6 +7,7 @@ import NotFoundPage from "../pages/Error/NotFoundPage";
 import MyCarts from "../components/MyCarts/MyCarts";
 import AddProducts from "../components/Products/AddProducts";
 import PrivateRoute from "./PrivateRoute";
+import BrandProducts from "../pages/Home/BrandProducts";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("brand.json"),
+      },
+
+      {
+        path: "/brand/product/:name",
+        element: <BrandProducts></BrandProducts>
       },
 
       {
@@ -26,6 +33,8 @@ const router = createBrowserRouter([
             <AddProducts></AddProducts>
           </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:5000/products"),
+        // loader: () => fetch('https://info-tech-server-app.vercel.app/products'),
       },
 
       {

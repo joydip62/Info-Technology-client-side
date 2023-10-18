@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "name": "JBL",
+    "image": "https://i.ibb.co/h9vxJxv/jbl.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Sony",
+    "image": "https://i.ibb.co/BrnbBK6/sony.png"
+  },
+  {
+    "id": 3,
+    "name": "Canon",
+    "image": "https://i.ibb.co/f10hR1S/canon.png"
+  },
+  {
+    "id": 4,
+    "name": "Dell",
+    "image": "https://i.ibb.co/Fs6DBC8/dell.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Samsung",
+    "image": "https://i.ibb.co/wWwfqXV/samsung.jpg"
+  },
+  
+  {
+    "id": 6,
+    "name": "Apple",
+    "image": "https://i.ibb.co/jvNcMcz/Apple-Logo.png"
+  }
+]
