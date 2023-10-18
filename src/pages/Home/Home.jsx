@@ -1,11 +1,13 @@
 
 import AOS from "aos";
 import { Link, useLoaderData } from "react-router-dom";
+import Products from "../../components/Products/Products";
 AOS.init();
 
 const Home = () => {
   
   const brands = useLoaderData();
+  
 
     return (
       <div>
@@ -68,6 +70,9 @@ const Home = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div>
+          <Products></Products>
         </div>
       </div>
     );

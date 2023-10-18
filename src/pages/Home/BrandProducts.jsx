@@ -54,11 +54,15 @@ const BrandProducts = () => {
                   />
                 ))}
               </div>
-              <Link to={`/productDetails/${product._id}`}>
-                <div className="card-actions w-full">
-                  <button className="btn btn-primary w-full">Details</button>
-                </div>
-              </Link>
+              <div className="card-actions">
+                <Link to={`/productDetails/${product._id}`}>
+                  <button className="btn btn-primary">Details</button>
+                </Link>
+
+                <Link to={`/productUpdate/${product._id}`}>
+                  <button className="btn btn-success ">Update</button>
+                </Link>
+              </div>
             </div>
           </div>
         ))}
