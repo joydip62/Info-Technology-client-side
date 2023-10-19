@@ -1,8 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
-    const product = useLoaderData();
+  const product = useLoaderData();
     const {
+      _id,
       name,
       brandName,
       productType,
@@ -11,6 +13,8 @@ const UpdateProduct = () => {
       rating,
       photo,
     } = product;
+
+    const navigate = useNavigate();
 
   const handleUpdateProduct = (e) => {
     e.preventDefault();
@@ -23,7 +27,7 @@ const UpdateProduct = () => {
     const rating = form.rating.value;
     const photo = form.photo.value;
 
-    const updateProducts = {
+      const updateProducts = {
       name,
       brandName,
       productType,
@@ -31,8 +35,27 @@ const UpdateProduct = () => {
       sortDescription,
       rating,
       photo,
-      };
-      console.log(updateProducts);
+    };
+
+      fetch(`http://localhost:5000/products/${_id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateProducts),
+      })
+        .then((res) => res.json())
+          .then((data) => {
+            if (data.modifiedCount > 0) {
+              Swal.fire({
+                title: "Success!",
+                text: "Product Updated Successfully!",
+                icon: "success",
+                confirmButtonText: "Cool",
+              });
+              navigate('/');
+            }
+        });
   };
   return (
     <div className="w-3/4 m-auto text-center lg:p-24">
@@ -94,10 +117,10 @@ const UpdateProduct = () => {
                 <option disabled selected>
                   Select type
                 </option>
-                <option value={"phone"}>Phone</option>
-                <option value={"laptop"}>Laptop</option>
-                <option value={"camera"}>Camera</option>
-                <option value={"headphone"}>Headphone</option>
+                <option value={"Phone"}>Phone</option>
+                <option value={"Laptop"}>Laptop</option>
+                <option value={"Camera"}>Camera</option>
+                <option value={"Headphone"}>Headphone</option>
               </select>
             </label>
           </div>
