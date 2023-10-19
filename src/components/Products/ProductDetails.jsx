@@ -19,7 +19,7 @@ const ProductDetails = () => {
         const cartProduct = { name, photo, sortDescription, brandName, productType, price, rating };
         console.log(cartProduct);
 
-        fetch("http://localhost:5000/product/cart", {
+        fetch("https://info-tech-server-app.vercel.app/product/cart", {
           method: "POST",
           headers: {
             "content-type": "application/json",

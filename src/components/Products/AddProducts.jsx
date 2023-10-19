@@ -25,7 +25,7 @@ const AddProducts = () => {
       photo,
     };
     //   console.log(products);
-    fetch("http://localhost:5000/products", {
+    fetch("https://info-tech-server-app.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             <AddProducts></AddProducts>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/products"),
+        loader: () => fetch("https://info-tech-server-app.vercel.app/products"),
         // loader: () => fetch('https://info-tech-server-app.vercel.app/products'),
       },
 
@@ -57,10 +57,11 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://info-tech-server-app.vercel.app/products/${params.id}`
+          ),
       },
 
-      
       {
         path: "/productUpdate/:id",
         element: (
@@ -69,9 +70,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://info-tech-server-app.vercel.app/products/${params.id}`
+          ),
       },
-
 
       {
         path: "/myCart",
@@ -80,7 +82,8 @@ const router = createBrowserRouter([
             <MyCarts></MyCarts>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/product/cart"),
+        loader: () =>
+          fetch("https://info-tech-server-app.vercel.app/product/cart"),
       },
 
       {

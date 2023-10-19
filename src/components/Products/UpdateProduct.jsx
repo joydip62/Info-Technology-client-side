@@ -37,7 +37,7 @@ const UpdateProduct = () => {
       photo,
     };
 
-      fetch(`http://localhost:5000/products/${_id}`, {
+      fetch(`https://info-tech-server-app.vercel.app/products/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -45,16 +45,16 @@ const UpdateProduct = () => {
         body: JSON.stringify(updateProducts),
       })
         .then((res) => res.json())
-          .then((data) => {
-            if (data.modifiedCount > 0) {
-              Swal.fire({
-                title: "Success!",
-                text: "Product Updated Successfully!",
-                icon: "success",
-                confirmButtonText: "Cool",
-              });
-              navigate('/');
-            }
+        .then((data) => {
+          if (data.modifiedCount > 0) {
+            Swal.fire({
+              title: "Success!",
+              text: "Product Updated Successfully!",
+              icon: "success",
+              confirmButtonText: "Cool",
+            });
+            navigate("/");
+          }
         });
   };
   return (

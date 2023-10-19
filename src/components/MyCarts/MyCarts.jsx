@@ -8,7 +8,7 @@ const MyCarts = () => {
   const [updatedCart, setUpdatedCart] = useState(myCart);
 
   const handleDeleteCart = (_id) => {
-    fetch(`http://localhost:5000/product/${_id}`, {
+    fetch(`https://info-tech-server-app.vercel.app/product/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -33,9 +33,40 @@ const MyCarts = () => {
               setUpdatedCart(remaining);
             }
           });
-        } 
+        }
       });
   };
+  
+  // const handleDeleteCart = (_id) => {
+  //   fetch(`http://localhost:5000/product/${_id}`, {
+  //     method: "DELETE",
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.deletedCount > 0) {
+  //         Swal.fire({
+  //           title: "Are you sure to delete cart product?",
+  //           text: "You won't be able to revert this!",
+  //           icon: "warning",
+  //           showCancelButton: true,
+  //           confirmButtonColor: "#3085d6",
+  //           cancelButtonColor: "#d33",
+  //           confirmButtonText: "Yes, delete it!",
+  //         }).then((result) => {
+  //           if (result.isConfirmed) {
+  //             Swal.fire(
+  //               "Deleted!",
+  //               "Your cart product has been deleted.",
+  //               "success"
+  //             );
+  //             const remaining = updatedCart.filter((cof) => cof._id !== _id);
+  //             setUpdatedCart(remaining);
+  //           }
+  //         });
+  //       } 
+  //     });
+  // };
+  
   return (
     <div>
       <h2 className="text-5xl font-extrabold text-center mt-10">
