@@ -32,7 +32,7 @@ const WhyUs = () => {
               <h3 className="text-3xl font-bold text-center">Fast Delivery</h3>
               <p>
                 Fast Delivery: Your time is precious, and we understand that.
-                We're dedicated to providing lightning-fast delivery services,
+                We are dedicated to providing lightning-fast delivery services,
                 ensuring your orders are in your hands when you need them most.
                 Shop with confidence, knowing that swift, on-time delivery is
                 our promise to you.
@@ -48,7 +48,7 @@ const WhyUs = () => {
               <p>
                 Count on us for dependable service. We pride ourselves on
                 reliability, ensuring your orders arrive on schedule and in
-                excellent condition. Your trust is essential, and we're here to
+                excellent condition. Your trust is essential, and we are here to
                 consistently deliver a reliable shopping experience you can rely
                 on.
               </p>
