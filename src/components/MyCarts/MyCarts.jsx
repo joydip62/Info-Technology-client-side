@@ -1,12 +1,23 @@
-import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const MyCarts = () => {
-  const myCart = useLoaderData();
+  const { user } = useContext(AuthContext);
 
-  const [updatedCart, setUpdatedCart] = useState(myCart);
+  const [updatedCart, setUpdatedCart] = useState([]);
 
+    useEffect(() => {
+      fetch("https://info-tech-server-app.vercel.app/product/cart")
+        .then((res) => res.json())
+        .then((data) => {
+          const userEmail = user?.email;
+          const filteredData = data.filter((item) => item.userEmail === userEmail);
+          setUpdatedCart(filteredData);
+        });
+    }, [user]);
+  
+  
   const handleDeleteCart = (_id) => {
     fetch(`https://info-tech-server-app.vercel.app/product/${_id}`, {
       method: "DELETE",
@@ -37,35 +48,7 @@ const MyCarts = () => {
       });
   };
   
-  // const handleDeleteCart = (_id) => {
-  //   fetch(`http://localhost:5000/product/${_id}`, {
-  //     method: "DELETE",
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.deletedCount > 0) {
-  //         Swal.fire({
-  //           title: "Are you sure to delete cart product?",
-  //           text: "You won't be able to revert this!",
-  //           icon: "warning",
-  //           showCancelButton: true,
-  //           confirmButtonColor: "#3085d6",
-  //           cancelButtonColor: "#d33",
-  //           confirmButtonText: "Yes, delete it!",
-  //         }).then((result) => {
-  //           if (result.isConfirmed) {
-  //             Swal.fire(
-  //               "Deleted!",
-  //               "Your cart product has been deleted.",
-  //               "success"
-  //             );
-  //             const remaining = updatedCart.filter((cof) => cof._id !== _id);
-  //             setUpdatedCart(remaining);
-  //           }
-  //         });
-  //       } 
-  //     });
-  // };
+
   
   return (
     <div>

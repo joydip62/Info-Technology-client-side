@@ -1,14 +1,18 @@
 import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const ProductDetails = () => {
   const product = useLoaderData();
+  const { user } = useAuth();
+
   console.log(product);
 
   const handleAddCart = (e) => {
     e.preventDefault();
     const form = e.target;
+    const userEmail = form.userEmail.value;
     const name = form.name.value;
     const photo = form.photo.value;
     const sortDescription = form.sortDescription.value;
@@ -18,6 +22,7 @@ const ProductDetails = () => {
     const rating = form.rating.value;
 
     const cartProduct = {
+      userEmail,
       name,
       photo,
       sortDescription,
@@ -26,6 +31,7 @@ const ProductDetails = () => {
       price,
       rating,
     };
+
     console.log(cartProduct);
 
     fetch("https://info-tech-server-app.vercel.app/product/cart", {
@@ -83,6 +89,12 @@ const ProductDetails = () => {
               <form onSubmit={handleAddCart}>
                 <input
                   type="text"
+                  name="userEmail"
+                  defaultValue={user?.email}
+                  hidden
+                />
+                <input
+                  type="text"
                   name="name"
                   defaultValue={product.name}
                   hidden
@@ -124,6 +136,7 @@ const ProductDetails = () => {
                   defaultValue={product.rating}
                   hidden
                 />
+
                 <button className="mt-5 btn btn-primary">Add to Cart</button>
               </form>
             </div>

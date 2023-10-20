@@ -81,9 +81,7 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <MyCarts></MyCarts>
           </PrivateRoute>
-        ),
-        loader: () =>
-          fetch("https://info-tech-server-app.vercel.app/product/cart"),
+        )
       },
 
       {
