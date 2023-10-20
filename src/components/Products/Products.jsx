@@ -21,7 +21,7 @@ const Products = () => {
       </h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
         {products.slice(0, 8).map((product) => (
-          <>
+          
             <div
               className="card card-compact bg-base-100 shadow-xl"
               key={product._id}
@@ -54,7 +54,7 @@ const Products = () => {
                 </div>
               </div>
             </div>
-          </>
+          
         ))}
       </div>
       {/* {products.length > 4 && (
