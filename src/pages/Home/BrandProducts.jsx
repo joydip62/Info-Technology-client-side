@@ -3,18 +3,16 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const BrandProducts = () => {
   const { name } = useParams();
@@ -31,6 +29,10 @@ const BrandProducts = () => {
         setProducts(filteredData);
       });
   }, [name]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <div className="mt-10 m-auto text-center">

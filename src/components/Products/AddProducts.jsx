@@ -1,4 +1,5 @@
 // import { useLoaderData } from "react-router-dom";
+import { useEffect } from "react";
 import Swal from "sweetalert2";
 
 const AddProducts = () => {
@@ -44,6 +45,10 @@ const AddProducts = () => {
         form.reset();
       });
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="w-3/4 m-auto text-center lg:p-24">
       <h2 className="text-3xl mb-8">Add Product</h2>
@@ -101,10 +106,10 @@ const AddProducts = () => {
                 <option disabled selected>
                   Select type
                 </option>
-                <option value="phone">Phone</option>
-                <option value="laptop">Laptop</option>
-                <option value="camera">Camera</option>
-                <option value="headphone">Headphone</option>
+                <option value="Phone">Phone</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Camera">Camera</option>
+                <option value="Headphone">Headphone</option>
               </select>
             </label>
           </div>

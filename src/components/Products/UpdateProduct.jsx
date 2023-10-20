@@ -1,20 +1,21 @@
+import { useEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const product = useLoaderData();
-    const {
-      _id,
-      name,
-      brandName,
-      productType,
-      price,
-      sortDescription,
-      rating,
-      photo,
-    } = product;
+  const {
+    _id,
+    name,
+    brandName,
+    productType,
+    price,
+    sortDescription,
+    rating,
+    photo,
+  } = product;
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleUpdateProduct = (e) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ const UpdateProduct = () => {
     const rating = form.rating.value;
     const photo = form.photo.value;
 
-      const updateProducts = {
+    const updateProducts = {
       name,
       brandName,
       productType,
@@ -37,26 +38,31 @@ const UpdateProduct = () => {
       photo,
     };
 
-      fetch(`https://info-tech-server-app.vercel.app/products/${_id}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateProducts),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.modifiedCount > 0) {
-            Swal.fire({
-              title: "Success!",
-              text: "Product Updated Successfully!",
-              icon: "success",
-              confirmButtonText: "Cool",
-            });
-            navigate("/");
-          }
-        });
+    fetch(`https://info-tech-server-app.vercel.app/products/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateProducts),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Product Updated Successfully!",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          navigate("/");
+        }
+      });
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="w-3/4 m-auto text-center lg:p-24">
       <h2 className="text-3xl mb-8 font-bold">Update Product</h2>

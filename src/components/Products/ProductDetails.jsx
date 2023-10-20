@@ -1,43 +1,55 @@
+import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const product = useLoaderData();
-    console.log(product);
-    
-    const handleAddCart = e => {
-        e.preventDefault();
-        const form = e.target;
-        const name = form.name.value;
-        const photo = form.photo.value;
-        const sortDescription = form.sortDescription.value;
-        const brandName = form.brandName.value;
-        const productType = form.productType.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
+  console.log(product);
 
-        const cartProduct = { name, photo, sortDescription, brandName, productType, price, rating };
-        console.log(cartProduct);
+  const handleAddCart = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const sortDescription = form.sortDescription.value;
+    const brandName = form.brandName.value;
+    const productType = form.productType.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
 
-        fetch("https://info-tech-server-app.vercel.app/product/cart", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(cartProduct),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.acknowledged) {
-              Swal.fire(
-                "Good job!",
-                "Your product add to cart successfully!",
-                "success"
-              );
-            }
-            form.reset();
-          });
-    }
+    const cartProduct = {
+      name,
+      photo,
+      sortDescription,
+      brandName,
+      productType,
+      price,
+      rating,
+    };
+    console.log(cartProduct);
+
+    fetch("https://info-tech-server-app.vercel.app/product/cart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cartProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire(
+            "Good job!",
+            "Your product add to cart successfully!",
+            "success"
+          );
+        }
+        form.reset();
+      });
+  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -69,14 +81,13 @@ const ProductDetails = () => {
 
             <div>
               <form onSubmit={handleAddCart}>
-                    
                 <input
                   type="text"
                   name="name"
                   defaultValue={product.name}
                   hidden
                 />
-                              
+
                 <input
                   type="text"
                   name="photo"
