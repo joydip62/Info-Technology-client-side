@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-
+import logo from "./../../../public/info-tech-logo.png";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
@@ -67,7 +67,7 @@ const Navbar = () => {
             </ul>
           </div>
           <NavLink to="./">
-            <h2 className="text-xl font-extrabold">Info-Technology</h2>
+            <img src={logo} alt="" />
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">

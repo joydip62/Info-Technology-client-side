@@ -38,18 +38,41 @@ const BrandProducts = () => {
           // install Swiper modules
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={50}
-          slidesPerView={2}
+          slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
         >
-          {products.map((product) => (
-            <SwiperSlide key={product._id}>
-              <img src={product.photo} alt={product.name} className="h-96" />
-            </SwiperSlide>
-          ))}
+          <SwiperSlide>
+            <img
+              src="https://i.ibb.co/wpDW5q2/ad4.jpg"
+              alt="Add"
+              className="h-96 w-full"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src="https://i.ibb.co/nkQyXjJ/ad2.jpg"
+              alt="Add"
+              className="h-96 w-full"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src="https://i.ibb.co/yN9WZ2D/ad3.jpg"
+              alt="Add"
+              className="h-96 w-full"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src="https://i.ibb.co/b68ZxLM/ad1.jpg"
+              alt="Add"
+              className="h-96 w-full"
+            />
+          </SwiperSlide>
           ...
         </Swiper>
       </div>

@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddProducts = () => {
-  const loadProducts = useLoaderData();
+  // const loadProducts = useLoaderData();
 
   const handleAddProduct = (e) => {
     e.preventDefault();
@@ -44,28 +44,6 @@ const AddProducts = () => {
         form.reset();
       });
   };
-
-  /*
-  * brand
-https://i.ibb.co/h9vxJxv/jbl.jpg
-https://i.ibb.co/BrnbBK6/sony.png
-https://i.ibb.co/f10hR1S/canon.png
-https://i.ibb.co/Fs6DBC8/dell.jpg
-https://i.ibb.co/wWwfqXV/samsung.jpg
-https://i.ibb.co/jvNcMcz/Apple-Logo.png
-
-
-* product
-https://i.ibb.co/sKkdgH2/sony-mobile.jpg
-https://i.ibb.co/pr88XjG/apple-laptop.jpg
-https://i.ibb.co/hcQ0QMs/apple-mobile.jpg
-https://i.ibb.co/r6chdzd/samsung-mbl.jpg
-https://i.ibb.co/g3MT2LS/dell-laptop.jpg
-https://i.ibb.co/wJ1nSCK/canon-camera.png
-https://i.ibb.co/Wy5fz46/sony-camera.jpg
-https://i.ibb.co/mvR8M9q/jbl-headphones.png
-
-    */
   return (
     <div className="w-3/4 m-auto text-center lg:p-24">
       <h2 className="text-3xl mb-8">Add Product</h2>
@@ -195,7 +173,7 @@ https://i.ibb.co/mvR8M9q/jbl-headphones.png
         </div>
         <input className="btn btn-block" type="submit" value="Add Product" />
       </form>
-
+      {/*  
       <br />
       <br />
       <br />
@@ -249,6 +227,7 @@ https://i.ibb.co/mvR8M9q/jbl-headphones.png
           </tbody>
         </table>
       </div>
+      */}
     </div>
   );
 };
