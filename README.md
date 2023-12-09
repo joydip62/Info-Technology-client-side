@@ -20,6 +20,17 @@ Project features
 
 ##
 
+
+Technologies are use :
+##
+
+- Tailwind
+- daisyUI
+- ReactJS
+- Express.js
+- MongoDB
+- Firebase
+
 Live link
 
 [Info-Technology](https://acidic-stream.surge.sh/)
